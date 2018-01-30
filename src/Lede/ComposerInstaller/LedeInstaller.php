@@ -27,11 +27,11 @@ class LedeInstaller extends LibraryInstaller
             $name   = $prettyName;
         }
 
-        $typeName = str_replace('ledecms/', '', $package->getType());
+        $typeName = str_replace('ledecms-', '', $package->getType());
         if ($typeName === 'theme' || $typeName === 'core-theme') {
-            $name = preg_replace('/-module$/', '', $name);
-        } else {
             $name = preg_replace('/-theme$/', '', $name);
+        } else {
+            $name = preg_replace('/-module$/', '', $name);
         }
         $name = str_replace(['-', '_'], ' ', $name);
         $name = str_replace(' ', '', ucwords($name));
@@ -44,8 +44,10 @@ class LedeInstaller extends LibraryInstaller
      */
     public function supports($packageType)
     {
+
         foreach (array_keys($this->locations) as $type) {
-            if ($packageType === 'ledecms/'.$type) {
+            if ($packageType === 'ledecms-'.$type) {
+
                 return true;
             }
         }
