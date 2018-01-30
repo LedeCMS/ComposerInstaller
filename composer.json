@@ -1,0 +1,24 @@
+{
+    "name": "ledecms/composer-installer",
+    "type": "composer-plugin",
+    "description": "Installs LedeCMS packages into their proper homes",
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {"Lede\\ComposerInstaller": "src/"}
+    },
+    "extra": {
+        "class": "Lede\\ComposerInstaller\\InstallerPlugin"
+    },
+    "require": {
+        "composer-plugin-api": "^1.0"
+    },
+    "require-dev": {
+        "composer/composer": "^1.3"
+    },
+    "authors": [
+        {
+            "name": "Jamie Holly",
+            "email": "jamie@hollyit.net"
+        }
+    ]
+}
