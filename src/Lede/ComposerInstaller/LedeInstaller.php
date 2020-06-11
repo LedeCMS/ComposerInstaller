@@ -11,10 +11,8 @@ class LedeInstaller extends LibraryInstaller
 
     protected $locations
         = [
-            'core-module' => 'LedeCMS/Modules/',
-            'core-theme'  => 'LedeCMS/Themes/',
-            'module'      => 'Modules/',
-            'theme'       => 'Themes/',
+            'core' => 'LedeCMF/Core/',
+            'extra'  => 'LedeCMF/Extra/',
         ];
 
     public function getInstallPath(PackageInterface $package)
@@ -27,12 +25,7 @@ class LedeInstaller extends LibraryInstaller
             $name   = $prettyName;
         }
 
-        $typeName = str_replace('ledecms-', '', $package->getType());
-        if ($typeName === 'theme' || $typeName === 'core-theme') {
-            $name = preg_replace('/-theme$/', '', $name);
-        } else {
-            $name = preg_replace('/-module$/', '', $name);
-        }
+        $typeName = str_replace('ledecmf-', '', $package->getType());
         $name = str_replace(['-', '_'], ' ', $name);
         $name = str_replace(' ', '', ucwords($name));
 
